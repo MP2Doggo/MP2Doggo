@@ -22,6 +22,7 @@
     "react-hook-form": "^7.43.9",
     "react-router-dom": "^6.10.0",
     "react-scripts": "^5.0.1",
+    "reactstrap": "^9.1.9",
     "semantic-ui-react": "^2.1.4",
     "spaces": "^0.0.2",
     "string-strip-html": "^13.2.3",
