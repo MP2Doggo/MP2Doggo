@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ProductItem from './ProductItem';
 import Commerce from '@chec/commerce.js';
+import commerce from '../lib/commerce';
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
-  const [cart, setCart, onAddToCart ] = useState(null);
+  const [cart, setCart ] = useState(null);
 
   useEffect(() => {
     const commerce = new Commerce('pk_51720ae47ded79d12b2ae163d6415b6ad1f2b40b8a004');
@@ -25,7 +26,7 @@ function ProductsList() {
   }, []);
 
   const handleAddToCart = async (productId, quantity) => {
-    const item = await Commerce.cart.add(productId, quantity);
+    const item = await commerce.cart.add(productId, quantity);
     setCart(item.cart);
   };
 
@@ -37,7 +38,7 @@ function ProductsList() {
           <ProductItem
             key={product.id}
             product={product}
-            onAddToCart={onAddToCart}
+            handleAddToCart={handleAddToCart}
           />
         ))}
       </div>

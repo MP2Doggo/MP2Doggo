@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Order from './Order';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
-import Brand from './Brands';
+import Brand from './Categories';
 
 const router = createBrowserRouter([
   {

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import $ from 'jquery';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
   useEffect(() => {
@@ -80,6 +82,7 @@ function Header() {
 
   return (
     <header>
+      <FontAwesomeIcon icon={faShoppingCart} />
         <header className="flex">
           <section className="flex_content">
             <article>

@@ -25,6 +25,7 @@
     "reactstrap": "^9.1.9",
     "semantic-ui-react": "^2.1.4",
     "spaces": "^0.0.2",
+    "state-pool": "^0.10.0",
     "string-strip-html": "^13.2.3",
     "web-vitals": "^2.1.4"
   },
