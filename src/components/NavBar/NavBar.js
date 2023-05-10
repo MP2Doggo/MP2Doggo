@@ -1,7 +1,6 @@
 import React from "react";
-import { Container, FormText } from "react-bootstrap";
+import { Button, Container, Dropdown, FormText } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from "react-router-dom";
 
 const NavBar = ({ totalItems }) => {
@@ -10,7 +9,7 @@ const NavBar = ({ totalItems }) => {
   return (
     <>
       <Container position="fixed" color="inherit">
-        <Toolbar>
+        <Dropdown>
           <FormText
             component={Link}
             to="/"
@@ -25,14 +24,13 @@ const NavBar = ({ totalItems }) => {
               justifyContent: "space-between",
             }}
           >
-            <IconButton aria-label="Search" color="info" size="large">
-            </IconButton>
+            <FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
             Vintager
           </FormText>
           <div style={{ flexGrow: 1 }} />
           {location.pathname === "/" && (
             <div>
-              <IconButton
+              <Button
                 component={Link}
                 to="/cart"
                 aria-label="Show Cart Items"
@@ -42,10 +40,10 @@ const NavBar = ({ totalItems }) => {
                 <div badgeContent={totalItems} color="secondary">
                   
                 </div>
-              </IconButton>
+              </Button>
             </div>
           )}
-        </Toolbar>
+        </Dropdown>
       </Container>
     </>
   );

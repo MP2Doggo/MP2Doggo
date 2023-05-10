@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import AddressForm from "../AddressForm";
 import PaymentForm from "../PaymentForm";
-import { commerce } from "../../../lib/commerce";
+import commerce from "../../../lib/commerce";
 import { Link, useNavigate } from "react-router-dom";
 import { FormText } from "react-bootstrap";
-
-const steps = ["Shipping Address", "Payment Details"];
+import { Button } from "reactstrap";
+const divs = ["Shipping Address", "Payment Details"];
 
 const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activediv, setActivediv] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
   const [isFinished, setIsFinished] = useState(false);
@@ -29,18 +29,18 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     generateToken();
   }, [cart]);
 
-  const nextStep = () =>
-    setActiveStep((previousActiveStep) => previousActiveStep + 1);
-  const backStep = () =>
-    setActiveStep((previousActiveStep) => previousActiveStep - 1);
+  const nextdiv = () =>
+    setActivediv((previousActivediv) => previousActivediv + 1);
+  const backdiv = () =>
+    setActivediv((previousActivediv) => previousActivediv - 1);
 
   const next = (data) => {
     setShippingData(data);
-    nextStep();
+    nextdiv();
   };
 
   const Form = () =>
-    activeStep === 0 ? (
+    activediv === 0 ? (
       <AddressForm
         checkoutToken={checkoutToken}
         next={next}
@@ -50,9 +50,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
       <PaymentForm
         shippingData={shippingData}
         checkoutToken={checkoutToken}
-        backStep={backStep}
+        backdiv={backdiv}
         onCaptureCheckout={onCaptureCheckout}
-        nextStep={nextStep}
+        nextdiv={nextdiv}
       />
     );
 
@@ -129,7 +129,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
           },
         }}
       >
-        <Paper
+        <div
           sx={{
             marginTop: "24px",
             marginBottom: "24px",
@@ -152,19 +152,19 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
           >
             Checkout
           </FormText>
-          <Stepper sx={{ padding: "24px 0px 40px" }} activeStep={activeStep}>
-            {steps.map((step) => (
-              <Step key={step}>
-                <StepLabel>{step}</StepLabel>
-              </Step>
+          <div sx={{ padding: "24px 0px 40px" }} activediv={activediv}>
+            {divs.map((div) => (
+              <div key={div}>
+                <divLabel>{div}</divLabel>
+              </div>
             ))}
-          </Stepper>
-          {activeStep === steps.length ? (
+          </div>
+          {activediv === divs.length ? (
             <Confirmation />
           ) : (
             checkoutToken && <Form />
           )}
-        </Paper>
+        </div>
       </main>
     </>
   );

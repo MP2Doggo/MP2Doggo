@@ -6,7 +6,7 @@ import {
     ElementsConsumer,
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import Review from "./Review";
+import Review from "../CheckoutForm/Reviews";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 

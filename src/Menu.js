@@ -1,10 +1,54 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import { Button } from "react-bootstrap";
+import { Button, Container, Dropdown, FormText } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
+const NavBar = ({ totalItems }) => {
+    const location = useLocation();
+
+    return (
+        <>
+            <Container position="fixed" color="inherit">
+                <Dropdown>
+                    <FormText
+                        component={Link}
+                        to="/"
+                        variant="h3"
+                        color="#B27701"
+                        sx={{
+                            flexGrow: 1,
+                            alignItems: "center",
+                            display: "flex",
+                            textDecoration: "none",
+                            fontFamily: "Crimson Text",
+                            justifyContent: "space-between",
+                        }}
+                    >
+                        <FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
+                        Vintager
+                    </FormText>
+                    <div style={{ flexGrow: 1 }} />
+                    {location.pathname === "/" && (
+                        <div>
+                            <Button
+                                component={Link}
+                                to="/cart"
+                                aria-label="Show Cart Items"
+                                color="inherit"
+                                size="large"
+                            >
+                                <div badgeContent={totalItems} color="secondary">
+
+                                </div>
+                            </Button>
+                        </div>
+                    )}
+                </Dropdown>
+            </Container>
+        </>
+    );
+};
 const navigation = [
     { name: 'Order', href: '/Order' }
 ];
@@ -52,12 +96,19 @@ function Menu() {
                     <Button variant="primary">
                         <Link to="/order">Contact Us</Link>
                     </Button>
-                    <li className="fixed_flex"><a href="signup.html" className="btn btn_1 chat_popup">Sign Up</a> <a href=""
-                        className="btn btn_2 chat_popup">Order now</a> </li>
+                    <li className="fixed_flex"><a href="signup.html" className="btn btn_1 chat_popup">Sign Up</a>
+                        <a href="" className="btn btn_2 chat_popup">Order now</a> </li>
+                    <li>
+                        <Button variant="primary">
+                            <FontAwesomeIcon className="btn btn_1 chat_popup" icon="fa-solid fa-cart-shopping"></FontAwesomeIcon>
+                        </Button>
+                    </li>
                 </ul>
+
             </menu>
+
         </>
-    );
-}
+    )
+};
 
 export default Menu;

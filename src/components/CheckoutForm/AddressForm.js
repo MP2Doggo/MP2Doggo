@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { Link } from "react-router-dom";
-import FormInput from "./FormInput";
-import { commerce } from "../../lib/commerce";
-
+import { FormText } from "react-bootstrap";
+import commerce from "../../lib/commerce";
+import { Input } from "reactstrap";
+import { Button } from "bootstrap";
+import { Menu } from "semantic-ui-react";
 const AddressForm = ({ checkoutToken, next }) => {
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState("");
@@ -73,9 +75,9 @@ const AddressForm = ({ checkoutToken, next }) => {
 
   return (
     <>
-      <Typography variant="h6" gutterBottom sx={{ fontFamily: "Crimson Text" }}>
+      <FormText variant="h6" gutterBottom sx={{ fontFamily: "Crimson Text" }}>
         Shipping Address
-      </Typography>
+      </FormText>
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit((data) =>
@@ -87,62 +89,62 @@ const AddressForm = ({ checkoutToken, next }) => {
             })
           )}
         >
-          <Grid container spacing={3}>
-            <FormInput required name="firstName" label="First Name" />
-            <FormInput required name="lastName" label="Last Name" />
-            <FormInput required name="address1" label="Address" />
-            <FormInput required name="email" label="Email" />
-            <FormInput required name="city" label="City" />
-            <FormInput required name="zip" label="ZIP / Postal Code" />
-            <Grid item xs={12} sm={6}>
-              <InputLabel sx={{ fontFamily: "Crimson Text" }}>
+          <div container spacing={3}>
+            <Input required name="firstName" label="First Name" />
+            <Input required name="lastName" label="Last Name" />
+            <Input required name="address1" label="Address" />
+            <Input required name="email" label="Email" />
+            <Input required name="city" label="City" />
+            <Input required name="zip" label="ZIP / Postal Code" />
+            <div item xs={12} sm={6}>
+              <FormText sx={{ fontFamily: "Crimson Text" }}>
                 Shipping Country
-              </InputLabel>
-              <Select
+              </FormText>
+              <div
                 value={shippingCountry}
                 fullWidth
                 onChange={(e) => setShippingCountry(e.target.value)}
               >
                 {countries.map((country) => (
-                  <MenuItem key={country.id} value={country.id}>
+                  <Menu key={country.id} value={country.id}>
                     {country.label}
-                  </MenuItem>
+                  </Menu>
                 ))}
-              </Select>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <InputLabel sx={{ fontFamily: "Crimson Text" }}>
+              </div>
+            </div>
+            <div item xs={12} sm={6}>
+              <FormText sx={{ fontFamily: "Crimson Text" }}>
                 Shipping Subdivision
-              </InputLabel>
-              <Select
+              </FormText>
+              <div
                 value={shippingSubdivision}
                 fullWidth
                 onChange={(e) => setShippingSubdivision(e.target.value)}
               >
                 {subdivisions.map((subdivision) => (
-                  <MenuItem key={subdivision.id} value={subdivision.id}>
+                  <Menu key={subdivision.id} value={subdivision.id}>
                     {subdivision.label}
-                  </MenuItem>
+                  </Menu>
                 ))}
-              </Select>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <InputLabel sx={{ fontFamily: "Crimson Text" }}>
+              </div>
+            </div>
+            <div item xs={12} sm={6}>
+              <FormText sx={{ fontFamily: "Crimson Text" }}>
                 Shipping Options
-              </InputLabel>
-              <Select
+              </FormText>
+              <div
                 value={shippingOption}
                 fullWidth
                 onChange={(e) => setShippingOption(e.target.value)}
               >
                 {options.map((option) => (
-                  <MenuItem key={option.id} value={option.id}>
+                  <Menu key={option.id} value={option.id}>
                     {option.label}
-                  </MenuItem>
+                  </Menu>
                 ))}
-              </Select>
-            </Grid>
-          </Grid>
+              </div>
+            </div>
+          </div>
           <br />
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button

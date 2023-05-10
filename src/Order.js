@@ -5,15 +5,15 @@ import Header from './Header';
 import './Header.css';
 import './Order.css';
 import { Commerce } from '@chec/commerce.js';
-import $ from "jquery";
-import { Spaces } from 'spaces/spaces';
 import ProductsList from "./components/ProductsList";
+import NavBar from "./components/NavBar/NavBar";
 function Order() {
     return (
         <>
+            <NavBar />
             <Menu></Menu>
             <Header></Header>
-            <ProductsList/>
+            <ProductsList />
             <Footer></Footer>
         </>
     )

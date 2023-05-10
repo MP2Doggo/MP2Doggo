@@ -13,9 +13,12 @@ import commerce from './lib/commerce';
 import ProductsList from './components/ProductsList';
 import Brand from './Brands';
 import Cart from './components/Cart/Cart';
+import Checkout from './components/CheckoutForm/Checkout/Checkout';
+
 const App1 = () => {
   const [products, setProducts] = useState([]);
-
+  const [order, setOrder] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
   // Because React rendering can be triggered for many different reasons, 
   // it is best practice to wrap our commerce object method calls into a 
   // useEffect() hook. This hook acts as the replacment to componentWillMount() 
@@ -31,6 +34,7 @@ const App1 = () => {
    * Fetch products data from Chec and stores in the products data object.
    * https://commercejs.com/docs/sdk/products
    */
+  
   const fetchProducts = () => {
     commerce.products.list().then((products) => {
       setProducts(products.data);
@@ -75,7 +79,7 @@ const App1 = () => {
     const newCart = await commerce.cart.refresh();
     setCart(newCart);
   };
-  /*const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+  const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     console.log(newOrder);
     try {
       setErrorMessage("");
@@ -92,7 +96,7 @@ const App1 = () => {
       setErrorMessage(error.message);
     }
   };
-  */
+  
   console.log('Commerce Product: ', ProductsList);
   const [cart, setCart] = useState()
   useEffect(() => {
@@ -110,15 +114,14 @@ const App1 = () => {
       
       <Router>
         <div className="App">
-          <NavBar totalItems={cart.total_items} />
+          <Navbar totalItems={cart.total_items} />
           <Routes>
             <Route
               exact
               path="/"
               element={
                 <>
-                  <FeaturedBrands />{" "}
-                  <Products products={products} onAddToCart={handleAddToCart} />
+                  <ProductsList products={products} onAddToCart={handleAddToCart} />
                 </>
               }
             />
@@ -140,7 +143,7 @@ const App1 = () => {
               element={
                 <Checkout
                   cart={cart}
-                  order={order}
+                  order={Order}
                   onCaptureCheckout={handleCaptureCheckout}
                   error={errorMessage}
                 />
