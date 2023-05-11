@@ -12,10 +12,9 @@ import React, { useState, useEffect } from 'react';
 import commerce from './lib/commerce';
 import ProductsList from './components/ProductsList';
 import Brand from './Categories';
-import Cart from './components/Cart/Cart';
 import Checkout from './components/CheckoutForm/Checkout/Checkout';
 import {store, useGlobalState,} from 'state-pool';
-
+import MainComponent from './LandingPage';
 
 /*store.setState("initialCartCount", 0);      Get Cart Contents */
 const App1 = () => {
@@ -128,18 +127,7 @@ const App1 = () => {
                 </>
               }
             />
-            <Route
-              exact
-              path="/cart"
-              element={
-                <Cart
-                  cart={cart}
-                  handleUpdateCartQty={handleUpdateCartQty}
-                  handleRemoveFromCart={handleRemoveFromCart}
-                  handleEmptyCart={handleEmptyCart}
-                />
-              }
-            />
+
             <Route
               exact
               path="/checkout"
@@ -177,6 +165,7 @@ const Doggo = () => {
 
       <Menu />
       <Header />
+      <MainComponent />
       <Footer />
 
     </>

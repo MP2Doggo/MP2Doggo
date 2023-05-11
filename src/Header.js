@@ -82,7 +82,6 @@ function Header() {
 
   return (
     <header>
-      <FontAwesomeIcon icon={faShoppingCart} />
         <header className="flex">
           <section className="flex_content">
             <article>
