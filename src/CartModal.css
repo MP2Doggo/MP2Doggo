@@ -69,3 +69,15 @@
     margin-right: 8px;
     /* Add desired spacing between the CartView and the icon */
 }
+
+.big-white-icon {
+    font-size: 2em;
+    /* Adjust the value to make it bigger or smaller */
+    color: white;
+}
+
+.cart__count {
+    font-size: 2em;
+    /* Adjust the value to make it bigger or smaller */
+    color: white;
+}

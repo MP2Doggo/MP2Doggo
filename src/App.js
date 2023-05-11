@@ -12,8 +12,6 @@ import React, { useState, useEffect } from 'react';
 import commerce from './lib/commerce';
 import ProductsList from './components/ProductsList';
 import Brand from './Categories';
-import Checkout from './components/CheckoutForm/Checkout/Checkout';
-import {store, useGlobalState,} from 'state-pool';
 import MainComponent from './LandingPage';
 
 /*store.setState("initialCartCount", 0);      Get Cart Contents */
@@ -125,19 +123,6 @@ const App1 = () => {
                 <>
                   <ProductsList products={products} onAddToCart={handleAddToCart} />
                 </>
-              }
-            />
-
-            <Route
-              exact
-              path="/checkout"
-              element={
-                <Checkout
-                  cart={cart}
-                  order={Order}
-                  onCaptureCheckout={handleCaptureCheckout}
-                  error={errorMessage}
-                />
               }
             />
           </Routes>

@@ -1,27 +1,24 @@
 import React from "react";
-import { FormText, Col } from "react-bootstrap";
-import { useFormContext, Controller } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 const FormInput = ({ name, label, required }) => {
   const { control } = useFormContext();
 
   return (
-    <Col item xs={12} sm={6}>
+    <div>
+      <label>{label}</label>
       <Controller
         control={control}
         name={name}
         render={({ field: { onChange } }) => (
-          <FormText
-            fullWidth
-            label={label}
+          <input
+            type="text"
             required={required}
             onChange={onChange}
-            sx={{ fontFamily: "Crimson Text" }}
-            color="primary"
           />
         )}
       />
-    </Col>
+    </div>
   );
 };
 

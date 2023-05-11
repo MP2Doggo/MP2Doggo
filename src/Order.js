@@ -6,7 +6,6 @@ import './Header.css';
 import './Order.css';
 import Commerce from '@chec/commerce.js';
 import ProductsList from "./components/ProductsList";
-import NavBar from "./components/NavBar/NavBar";
 import handleAddToCart from "./components/ProductsList";
 function Order() {
 

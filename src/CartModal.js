@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import commerce from "./lib/commerce";
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import { Button, Container, Dropdown, FormText } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
-import { store, useGlobalState } from 'state-pool';
 import Modal from 'react-modal'; // Import the React Modal component
-import "./CartModal.css"
+import CheckoutForm from "./components/CheckoutForm";
+import "./CartModal.css";
+
 Modal.setAppElement('#root'); // Set the app element for accessibility
 
 function CartView() {
-    /* const [count, setCount] = useGlobalState("initialCartCount"); */
+    const [cart, setCart] = useState(null);
     const [count, setCount] = useState(0);
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedProducts, setSelectedProducts] = useState([]);
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
     useEffect(() => {
         fetchCart();
@@ -86,15 +85,29 @@ function CartView() {
         return price.toFixed(2);
     };
 
-    const handleAddToCart = async () => {
-        try {
-            for (const product of selectedProducts) {
-                await commerce.cart.add(product.product_id, product.quantity);
+    const handleAddToCart = async (formData) => {
+        if (!isFormSubmitted) {
+            setIsFormSubmitted(true);
+        } else {
+            try {
+                // Generate a checkout token
+                const { id } = await commerce.checkout.generateTokenFrom("cart", commerce.cart.id());
+
+                // Redirect the user to the checkout page
+                const checkoutUrl = order.hosted_checkout_url;
+                window.location.href = checkoutUrl;
+                // Create an order using Commerce.js API
+                const order = await commerce.checkout.capture(cart.id, formData);
+                // Capture the payment for the order
+                const { id: paymentId } = await commerce.checkout.capturePayment(
+                    order.id,
+                    formData
+                );
+                console.log("Order created:", order);
+                console.log("Payment captured:", paymentId);
+            } catch (error) {
+                console.log("Error capturing order or redirecting to checkout:", error);
             }
-            setCount(count + selectedProducts.reduce((acc, product) => acc + product.quantity, 0));
-            console.log("Items added to cart");
-        } catch (error) {
-            console.log("Error adding items to cart:", error);
         }
     };
 
@@ -133,12 +146,12 @@ function CartView() {
         });
         setSelectedProducts(updatedProducts);
     };
-
+    
     return (
         <>
             <div className="cart__container">
                 <div className="cart__icon" onClick={handleCartIconClick}>
-                    <FontAwesomeIcon icon={faShoppingCart} />
+                    <FontAwesomeIcon icon={faShoppingCart} className="big-white-icon" />
                     <span className="cart__count">{count}</span>
                 </div>
             </div>
@@ -187,12 +200,18 @@ function CartView() {
                 </ul>
                 <div className="cart__total">Total: {calculateTotal()}</div>
                 <div className="cart__buttons">
-                    <button onClick={handleAddToCart}>Add to Cart</button>
                     <button onClick={handleRemoveFromCart}>Clear Cart</button>
+                </div>
+                <div>
+                    {isFormSubmitted ? (
+                        <CheckoutForm handleFormSubmit={handleAddToCart} />
+                    ) : (
+                        <button onClick={handleAddToCart}>Checkout</button>
+                    )}
                 </div>
             </Modal>
         </>
     );
 }
 
-export default CartView; 
+export default CartView;

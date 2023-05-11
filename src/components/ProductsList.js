@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ProductItem from './ProductItem';
 import Commerce from '@chec/commerce.js';
 import commerce from '../lib/commerce';
-
+import '../Header.css'
 function ProductsList() {
   const [products, setProducts] = useState([]);
   const [cart, setCart ] = useState(null);

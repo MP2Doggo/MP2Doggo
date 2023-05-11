@@ -88,7 +88,10 @@ select {
 fieldset {
     border: 0;
 }
-
+h2 {
+    font-family: var(--cursive_font);
+    font-size: 4em;
+}
 h1,
 h2,
 h3,
@@ -1138,3 +1141,4 @@ header article p:before {
     color: black;
     background-color: #b8bca7;
 }
+
