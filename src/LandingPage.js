@@ -60,7 +60,12 @@ const MainComponent = () => {
       </div>
       {/*-Placeholder Youtube Video*/}
       <div style={{ textAlign: 'center' }}>
-        <iframe width="420" height="345" src="https://www.youtube.com/embed/SF0-xhaLXNI?autoplay=1&mute=1" style={{ border: '2px solid black', margin: '20px auto' }}></iframe>
+        <iframe
+          width="420"
+          height="345"
+          src="https://www.youtube.com/embed/SF0-xhaLXNI?autoplay=1&volume=40"
+          style={{ border: '2px solid black', margin: '20px auto' }}
+        ></iframe>
         <iframe width="420" height="345" src="https://www.youtube.com/embed/VI8eRC4wPpk?autoplay=1&mute=1" style={{ border: '2px solid black', margin: '20px auto' }}></iframe>
       </div>
     </main >

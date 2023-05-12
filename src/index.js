@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import Order from './Order';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 import Brand from './Categories';
+import AboutUsPage from './AboutUsPage';
+import ContactUsPage from './ContactUsPage';
+import TermsAndConditionsPage from './TermsAndConditionsPage';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +23,19 @@ const router = createBrowserRouter([
     path: "/brands",
     element: <Brand/>,
   },
+  {
+    path: "/aboutuspage",
+    element: <AboutUsPage/>,
+  },
+  {
+    path: "/contactuspage",
+    element: <ContactUsPage/>,
+  },
+  {
+    path: "/termsandconditionpage",
+    element: <TermsAndConditionsPage/>,
+  },
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

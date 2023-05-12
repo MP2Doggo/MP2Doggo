@@ -88,11 +88,13 @@ select {
 fieldset {
     border: 0;
 }
+
 h2 {
     font-family: var(--cursive_font);
     font-size: 4em;
     padding-left: 40px;
 }
+
 h1,
 h2,
 h3,
@@ -1144,7 +1146,84 @@ header article p:before {
 }
 
 /*Categories */
-.category_images img{
-    width: 300px;
-    height: 300px;
+.category_images img {
+    width: 250px;
+    height: 200px;
+    padding: 30px;
+}
+
+.category_images li {
+    color: #000;
+    font-size: 50px;
+    font-family: var(--default_font);
+    margin-left: 50px;
+}
+
+/* About Us Page */
+.about-us-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-us-content h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-us-content p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* ContactUsPage.css */
+
+.contact-form-section {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Terms and Condition Page */
+.terms-and-conditions-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.terms-and-conditions-page h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.terms-and-conditions-page p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
 }

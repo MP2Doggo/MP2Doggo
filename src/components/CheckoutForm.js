@@ -8,6 +8,7 @@ function CheckoutForm({ handleFormSubmit }) {
     email: "",
     address: "",
     city: "",
+    phone: "",
     // Add more fields as necessary
   });
 
@@ -22,7 +23,7 @@ function CheckoutForm({ handleFormSubmit }) {
     e.preventDefault();
 
     // Perform form validation
-    if (!formData.firstName || !formData.lastName || !formData.email) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
       // Display an error message or handle the validation error appropriately
       console.log("Please fill out all required fields.");
       return;
@@ -73,9 +74,16 @@ function CheckoutForm({ handleFormSubmit }) {
         onChange={handleInputChange}
         placeholder="City"
       />
+      <input
+        type="text"
+        name="phone"
+        value={formData.phone}
+        onChange={handleInputChange}
+        placeholder="Phone"
+      />
 
       {/* Add more input fields for other form data */}
-
+      c
       <button type="submit">Proceed to Checkout</button>
     </form>
   );

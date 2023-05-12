@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import Header from './App';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -15,7 +16,7 @@ function Footer() {
             <p>Available on Desktop and Mobile devices</p>
             <aside className="fixed_flex">
               <a href="#" className="fixed_flex">
-                <img src="assets/pawicon.png" alt="" width="50" height="50" />
+                <img src="https://i.ibb.co/sqcHnmx/167-1676470-paw-clip-art-dog-paw-print-clip-art-removebg-preview.png" alt="" width="50" height="50" />
                 <strong>
                   <h5>Order Now</h5>
                   <h3>Click to Order</h3>
@@ -34,11 +35,11 @@ function Footer() {
           <a href="#"><i className="fa fa-youtube"></i></a>
         </section>
         <section className="flex">
-          <a href="index.html">Home</a>
-          <a href="#">About us</a>
-          <a href="#">Order Now</a>
-          <a href="#">Contact us</a>
-          <a href="#">Terms &amp; conditions</a>
+          <Link to="/">Home</Link>
+          <Link to="/aboutuspage">About Us</Link>
+          <Link to="/order">Order Now</Link>
+          <Link to="/contactuspage">Contact Us</Link>
+          <Link to="/termsandconditionpage">Terms &amp; conditions</Link>
         </section>
         <section className="flex">
           <p>© {new Date().getFullYear()} || All rights reserved || Nicole Magallanes</p>
@@ -54,7 +55,7 @@ function Footer() {
       </section>
 
       <a href="#" className="msg fixed_flex" title="msg use">
-        <img src="assets/pawicon.png" width="40" height="40" />
+        <img src="https://i.ibb.co/sqcHnmx/167-1676470-paw-clip-art-dog-paw-print-clip-art-removebg-preview.png" width="40" height="40" />
         <strong>
           <h6>Contact Us</h6>
           <h3>Need Assistance?</h3>

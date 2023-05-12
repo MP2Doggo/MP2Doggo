@@ -13,6 +13,9 @@ import commerce from './lib/commerce';
 import ProductsList from './components/ProductsList';
 import Brand from './Categories';
 import MainComponent from './LandingPage';
+import AboutUsPage from './AboutUsPage';
+import ContactUsPage from './ContactUsPage';
+import TermsAndConditionsPage from './TermsAndConditionsPage';
 
 /*store.setState("initialCartCount", 0);      Get Cart Contents */
 const App1 = () => {
@@ -139,6 +142,9 @@ function App() {
       <Routes>
         <Route path='../order' element={<Order />} />
         <Route path='../brands' element={<Brand />} />
+        <Route path='../aboutus page' element={<AboutUsPage />} />
+        <Route path='../contactus page' element={<ContactUsPage />} />
+        <Route path='../termsandconditionpage' element={<TermsAndConditionsPage />} />
       </Routes>
     </Navbar>
   );
