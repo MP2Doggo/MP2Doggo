@@ -7,9 +7,9 @@ import './Header.css';
 function TermsAndConditionsPage() {
   return (
     <>
+    <Menu />
       <Header />
-      <Menu />
-
+    
       <div className="terms-and-conditions-page">
         <h1>Terms and Conditions</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo massa nec risus finibus, ac pharetra elit consequat. Nullam semper volutpat sapien, et congue lorem tristique vitae. Ut sed leo in elit scelerisque commodo nec euismod lorem. Nulla tincidunt nisi vitae nisl efficitur, et sollicitudin leo congue. Fusce a tellus neque. Praesent suscipit mi non ex interdum, a dictum sem dictum. Nam a lectus in nulla pharetra facilisis vel sed nunc. In rutrum pellentesque tortor, et dapibus ex pellentesque vitae. Proin maximus nisl sed lectus aliquam, sit amet fermentum dolor malesuada. In hac habitasse platea dictumst. Sed nec fermentum sem. Nulla facilisi. Fusce ultrices est a erat interdum, eu posuere tellus tincidunt. Nam bibendum felis eget turpis fermentum, a luctus lectus convallis. Donec luctus nisi ut purus porttitor consectetur.</p>

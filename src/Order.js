@@ -17,8 +17,8 @@ function Order() {
     };
     return (
         <>
-            <Menu></Menu>
-            <Header></Header>
+            <Menu />
+            <Header />
             <ProductsList handleAddToCart={handleAddToCart} />
             <Footer></Footer>
         </>

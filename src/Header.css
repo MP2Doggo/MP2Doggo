@@ -1183,6 +1183,7 @@ header article p:before {
 .contact-form-section {
     max-width: 500px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .contact-form-section h2 {

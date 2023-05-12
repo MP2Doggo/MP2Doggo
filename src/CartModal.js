@@ -5,7 +5,7 @@ import commerce from "./lib/commerce";
 import Modal from 'react-modal'; // Import the React Modal component
 import CheckoutForm from "./components/CheckoutForm";
 import "./CartModal.css";
-
+import "./Header.css"
 Modal.setAppElement('#root'); // Set the app element for accessibility
 
 function CartView() {
@@ -189,11 +189,10 @@ function CartView() {
                                         </button>
                                         <span>{product.quantity}</span>
                                         <button onClick={() => handleIncreaseQuantity(product)}>+</button>
+                                        <button className="remove__buttons" onClick={() => handleRemoveFromCart(product)}>Remove</button>
                                     </div>
                                 </div>
-                                <div className="product__actions">
-                                    <button onClick={() => handleRemoveFromCart(product)}>Remove</button>
-                                </div>
+                                
                             </div>
                         </li>
                     ))}
@@ -206,7 +205,7 @@ function CartView() {
                     {isFormSubmitted ? (
                         <CheckoutForm handleFormSubmit={handleAddToCart} />
                     ) : (
-                        <button onClick={handleAddToCart}>Checkout</button>
+                        <button  className="checkout__buttons" onClick={handleAddToCart}>Checkout</button>
                     )}
                 </div>
             </Modal>
