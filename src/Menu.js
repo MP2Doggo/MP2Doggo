@@ -63,26 +63,6 @@ function Menu() {
                     </a>
                 </section>
                 <section className="flexx_content">
-                    <div className={`search-bar${isMobileSearch ? ' mobile-search' : ''}`} ref={searchBarRef}>
-                        <input
-                            type="text"
-                            className={`search-input${isMobileSearch ? ' hide' : ''}`}
-                            placeholder="Search products..."
-                            value={searchTerm}
-                            onChange={handleSearchInputChange}
-                        />
-                        <FontAwesomeIcon icon={faSearch} className="search-icon" onClick={toggleMobileSearch} />
-                        {searchResults.length > 0 && isSearchOpen && (
-                            <ul className="search-results">
-                                {searchResults.map((product) => (
-                                    <li key={product.id}>
-                                        <span>{product.name}</span>
-                                        <button onClick={() => handleAddToCart(product.id)}>Add to Cart</button>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
                     <div className="cart__container">
                         <CartView />
                     </div>
@@ -119,6 +99,26 @@ function Menu() {
                     </li>
                 </ul>
                 <br />
+                <div className={`search-bar${isMobileSearch ? ' mobile-search' : ''}` } ref={searchBarRef}>
+                    <input
+                        type="text"
+                        className={`search-input${isMobileSearch ? ' hide' : ''}`}
+                        placeholder="Search products..."
+                        value={searchTerm}
+                        onChange={handleSearchInputChange}
+                    />
+                    <FontAwesomeIcon icon={faSearch} className="search-icon" onClick={toggleMobileSearch} />
+                    {searchResults.length > 0 && isSearchOpen && (
+                        <ul className="search-results">
+                            {searchResults.map((product) => (
+                                <li key={product.id}>
+                                    <span>{product.name}</span>
+                                    <button onClick={() => handleAddToCart(product.id)}>Add to Cart</button>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
                 <ul>
                     <Button variant="primary">
                         <Link to="/">Home</Link>
