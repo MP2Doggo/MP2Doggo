@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import commerce from "./lib/commerce";
+import commerce from "../lib/commerce";
 
 function CheckoutForm({ handleFormSubmit }) {
   const [formData, setFormData] = useState({
@@ -8,7 +8,6 @@ function CheckoutForm({ handleFormSubmit }) {
     email: "",
     address: "",
     city: "",
-    postalCode: "",
     // Add more fields as necessary
   });
 
@@ -46,6 +45,35 @@ function CheckoutForm({ handleFormSubmit }) {
         onChange={handleInputChange}
         placeholder="First Name"
       />
+      <input
+        type="text"
+        name="lastName"
+        value={formData.lastName}
+        onChange={handleInputChange}
+        placeholder="Last Name"
+      />
+      <input
+        type="text"
+        name="email"
+        value={formData.email}
+        onChange={handleInputChange}
+        placeholder="Email"
+      />
+      <input
+        type="text"
+        name="address"
+        value={formData.address}
+        onChange={handleInputChange}
+        placeholder="Address"
+      />
+      <input
+        type="text"
+        name="city"
+        value={formData.city}
+        onChange={handleInputChange}
+        placeholder="City"
+      />
+
       {/* Add more input fields for other form data */}
 
       <button type="submit">Proceed to Checkout</button>

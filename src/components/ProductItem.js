@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { stripHtml } from 'string-strip-html';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import './Modal.css';
+import '../Order.css';
 import commerce from '../lib/commerce';
 
 const ProductItem = ({ product }) => {
@@ -21,8 +21,8 @@ const ProductItem = ({ product }) => {
 
   return (
     <div className="product__card">
-      <img className="product__image" src={product.image.url} alt={product.name} />
-      <div className="product__info">
+      <img className="product__image row" src={product.image.url} alt={product.name} />
+      <div className="product__info col">
         <h4 className="product__name">{product.name}</h4>
         <p className="product__description">{result}</p>
         <div className="product__details">

@@ -12,7 +12,7 @@ const CategoriesList = () => {
     const fetchCategories = async () => {
         try {
             const { data: categoriesData } = await commerce.categories.list();
-            setCategories(categoriesData);
+            setCategories(categoriesData.slice(0, 3)); // Slice only the first 3 categories
         } catch (error) {
             console.log("Error fetching categories:", error);
         }
@@ -26,11 +26,20 @@ const CategoriesList = () => {
         <>
             <Menu />
             <Header />
-            <div>
-                <h2>All Categories:</h2>
+            <div className='category_images col'>
+                <h2>Top 3 Categories:</h2>
                 <ul>
-                    {categories.map((category) => (
-                        <li key={category.id}>{category.name}</li>
+                    {categories.map((category, index) => (
+                        <li key={category.id}>
+                            {index === 1 ? (
+                                <img src="https://i.ibb.co/hWTjpNq/hills-nav2020-logo-png-rendition-200-200.webp" alt={category.name} />
+                            ) : index === 2 ? (
+                                <img src="https://i.ibb.co/1GPwPpt/Royal-Canin-Logo-svg.png" alt={category.name} />
+                            ) : (
+                                <img src="https://i.ibb.co/fHQJbVk/pedigree-us-logo-0.webp" alt={category.name} />
+                            )}
+                            {category.name}
+                        </li>
                     ))}
                 </ul>
             </div>

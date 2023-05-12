@@ -91,6 +91,7 @@ fieldset {
 h2 {
     font-family: var(--cursive_font);
     font-size: 4em;
+    padding-left: 40px;
 }
 h1,
 h2,
@@ -1142,3 +1143,8 @@ header article p:before {
     background-color: #b8bca7;
 }
 
+/*Categories */
+.category_images img{
+    width: 300px;
+    height: 300px;
+}
