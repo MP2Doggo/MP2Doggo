@@ -254,6 +254,38 @@ h6 {}
     }
 }
 
+.slide-animation {
+    animation: slideToPosition 1s forwards;
+}
+
+@keyframes slideToPosition {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide_delivery {
+    animation: slideToPosition1 1s forwards;
+}
+
+@keyframes slideToPosition1 {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 
 /***************************
                 NAV
@@ -1228,4 +1260,3 @@ textarea {
     line-height: 1.5;
     margin-bottom: 10px;
 }
-

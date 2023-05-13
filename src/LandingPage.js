@@ -7,7 +7,7 @@ const MainComponent = () => {
       {/*division_1*/}
       <div className="divisions division_1 flex">
         <section className="flex_content">
-          <figure>
+          <figure className='slide_delivery'>
             <img src="https://i.ibb.co/r4z6xk7/Delivery.png" alt="" loading="lazy" />
           </figure>
         </section>

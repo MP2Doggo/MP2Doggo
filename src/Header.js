@@ -84,7 +84,7 @@ function Header() {
     <header>
         <header className="flex">
           <section className="flex_content">
-            <article>
+            <article className='slide_delivery'>
               <h1 className="cursive big">
                 Carefully Crafted Recipe and broth for your Dog!<br />
                 <strong className="title">
@@ -93,14 +93,14 @@ function Header() {
               </h1>
             </article>
           </section>
-          <section className="flex_content">
+          <section className="slide-animation flex_content">
             <figure>
               <img src="https://i.ibb.co/xL9CZ66/MOBILE-VIEW-ORDERS.png" alt="" loading="lazy" />
             </figure>
-            <figure>
+            <figure  className="slide-animation">
               <img src="https://i.ibb.co/sgm9mwv/Header-Right-1.png" alt="" />
             </figure>
-            <aside className="tag fixed_flex">
+            <aside className="slide-animation tag fixed_flex">
               <img
                 src="https://i.ibb.co/sqcHnmx/167-1676470-paw-clip-art-dog-paw-print-clip-art-removebg-preview.png"
                 alt=""
